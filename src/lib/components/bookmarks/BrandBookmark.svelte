@@ -1,31 +1,28 @@
 <script lang="ts">
-	import { Bookmark } from 'lucide-svelte'
+	import { Bookmark } from 'lucide-svelte';
+	import { bookmarks } from '$lib/data/bookmarks';
 
-    export let brandName:string;
-    let bookmarks:string[]; // << this should be a global variable
+	export let brandName: string;
 
+	let isBrandBookmarked:boolean = $bookmarks.includes(brandName);
+    console.log(isBrandBookmarked);
 
-    let isBrandBookmarked:boolean = brandName in bookmarks;
+	function updateBookmarks() {
+		if (!$bookmarks.includes(brandName)) {
+			$bookmarks.push(brandName); //adding to array because value doesnt exists
+		} else {
+			$bookmarks.splice($bookmarks.indexOf(brandName), 1); //deleting
+		}
 
-    function updateBookmarks(){
-        if(brandName in bookmarks){
-            bookmarks = bookmarks.filter((bookmark) => bookmark != brandName);
-        }else{
-            // append brand to bookmarks
-            bookmarks.push(brandName);
-        }
-        isBrandBookmarked = !isBrandBookmarked;
-    }
-
+		isBrandBookmarked = !isBrandBookmarked;
+		console.log($bookmarks);
+	}
 </script>
 
-
-
-
 <button on:click={updateBookmarks}>
-    {#if isBrandBookmarked}
-        <Bookmark color="#FFFF00" />
-    {:else}
-        <Bookmark  />
-    {/if}
+	{#if isBrandBookmarked}
+		<Bookmark color="#FFFF00" />
+	{:else}
+		<Bookmark />
+	{/if}
 </button>

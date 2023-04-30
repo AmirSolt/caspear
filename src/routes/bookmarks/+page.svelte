@@ -3,24 +3,19 @@
     // export let data;
 	// let mainData = data.mainData;
 	import {mainData} from '$lib/data/mainData';
-
+    import {bookmarks} from '$lib/data/bookmarks';
     
-    import Card from '$lib/components/cards/EventCard.svelte';
+    import BrandCard from '$lib/components/cards/BrandCard.svelte';
 
-
+    // get all brands and get brand object from bookmark names
 
 </script>
 
 
 
-<!-- {#each bookmarks as bookmark }
+{#each $bookmarks as bookmark }
 
-    <Card item={bookmark} />
+    <BrandCard brand={bookmark} />
 
-{/each} -->
-
-
-<h1>
-    {mainData}
-</h1>
+{/each}
 

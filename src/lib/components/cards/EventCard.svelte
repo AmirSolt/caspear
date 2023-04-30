@@ -10,7 +10,7 @@
 
 
 
-<a class="card varient-soft card-hover overflow-hidden" href="/elements/cards">
+<a class="card varient-soft card-hover overflow-hidden" >
     <header>
         <img src="{event.img}" class="{event.name}" alt="Post" />
     </header>

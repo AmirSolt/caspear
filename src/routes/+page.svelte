@@ -6,27 +6,25 @@
 
 	import BrandCard from '$lib/components/cards/BrandCard.svelte';
 	import EventCard from '$lib/components/cards/EventCard.svelte';
-	import CategorySelect from '$lib/components/other/CategorySelect.svelte';
-	import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
+	import ContentRadio from '$lib/components/explore/ContentRadio.svelte';
+	import CategorySelect from '$lib/components/explore/CategorySelect.svelte';
 
 	let contentRadio: number  = 0;
 
 	let categories: string[] = Object.keys(mainData);
 	let chosenCategoryIndex: number = 0;
-	let category = mainData[categories[chosenCategoryIndex]];
-	let brands = Object.values(category.brands);
-	let events = brands.map((brand) => brand.events).flat();
+	$: category = mainData[categories[chosenCategoryIndex]];
+	$: brands = Object.values(category.brands);
+	$: events = brands.map((brand:any) => brand.events).flat();
+
 </script>
 
 <h1>Brands</h1>
 
-<CategorySelect bind:chosenCategoryIndex {categories} />
+<CategorySelect bind:chosenCategoryIndex categories={categories} />
 
 
-<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
-	<RadioItem bind:group={contentRadio} name="contentType" value={0}>Brands</RadioItem>
-	<RadioItem bind:group={contentRadio} name="contentType" value={1}>Events</RadioItem>
-</RadioGroup>
+<ContentRadio bind:contentRadio />
 
 
 {#if contentRadio==0}

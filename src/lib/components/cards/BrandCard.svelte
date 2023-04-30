@@ -1,11 +1,14 @@
 <script lang="ts">
+
+    import BrandBookmark from "$lib/components/bookmarks/BrandBookmark.svelte";
+
     export let brand:any;
 </script>
 
 
 
 
-<a class="card varient-soft card-hover overflow-hidden" href="/elements/cards">
+<a class="card varient-soft card-hover overflow-hidden" >
     <header>
         <img src="{brand.img}" class="{brand.name}" alt="Post" />
     </header>
@@ -15,6 +18,6 @@
     </div>
     <hr class="opacity-50" />
     <footer class="p-4 flex justify-start brands-center space-x-4">
-        
+        <BrandBookmark brandName={brand.name} />
     </footer>
 </a>

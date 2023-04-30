@@ -3,7 +3,7 @@
 
 
     export let categories:string[] = [];
-    export let chosenCategoryIndex:number = 0;
+    export let chosenCategoryIndex:number;
 
 </script>
 

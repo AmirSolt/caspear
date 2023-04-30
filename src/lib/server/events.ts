@@ -1,5 +1,5 @@
 
-export const events = {
+export const events:any = {
     "clothing":{
         category: 'clothing',
         items: [

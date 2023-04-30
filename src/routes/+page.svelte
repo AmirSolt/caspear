@@ -1,29 +1,22 @@
 <script lang="ts">
 
-	import {events} from '$lib/data/events';
+	import {events} from '$lib/server/events';
 
 	import Card from '$lib/components/cards/Card.svelte';
+	import BrandSelect from '$lib/components/other/BrandSelect.svelte';
 
 
-	let categories = Object.keys(events);
-	let chosenCategoryIndex = 0;
-	$: chosenCategory = categories[chosenCategoryIndex];
+	let categories:string[] = Object.keys(events);
+	let chosenCategoryIndex:number = 0;
+
+	console.log('categories', categories);
 
 </script>
 
 
-<select class="select" bind:value={chosenCategoryIndex}>
-	{#each categories as category, index}
-		<option 
-			value={index} 
-			selected={index === chosenCategoryIndex}
-			>
-			{category}
-		</option>
-	{/each}
-</select>
+<BrandSelect bind:chosenCategoryIndex categories={categories} />
 
-{#each events[chosenCategory].items  as item}
+{#each events[categories[chosenCategoryIndex]].items  as item}
 	<Card item={item} />
 {/each}
 

@@ -5,8 +5,6 @@
     export let categories:string[] = [];
     export let chosenCategoryIndex:number = 0;
 
-    console.log('categories', categories);
-    console.log('chosenCategoryIndex', chosenCategoryIndex);
 </script>
 
 

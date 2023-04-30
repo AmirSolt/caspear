@@ -19,13 +19,16 @@
 			</svelte:fragment>
 
 			<svelte:fragment slot="trail">
+	
+		
 				<a
 					class="btn btn-sm variant-ringed"
 					href="/bookmarks"
 				>
 					<Bookmark />
 				</a>
-		
+
+				
 				<LightSwitch />
 			</svelte:fragment>
 		</AppBar>

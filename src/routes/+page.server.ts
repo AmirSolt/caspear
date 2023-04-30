@@ -1,0 +1,1 @@
+// load recent viewed brands from cookie

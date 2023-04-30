@@ -1,17 +1,26 @@
-<script>
+<script lang='ts'>
     
-	import {events} from '$lib/server/events';
-    import {bookmarks} from '$app/stores';
+    // export let data;
+	// let mainData = data.mainData;
+	import {mainData} from '$lib/data/mainData';
+
     
-    import Card from '$lib/components/cards/Card.svelte';
+    import Card from '$lib/components/cards/EventCard.svelte';
+
+
 
 </script>
 
 
 
-{#each bookmarks as bookmark }
+<!-- {#each bookmarks as bookmark }
 
     <Card item={bookmark} />
 
-{/each}
+{/each} -->
+
+
+<h1>
+    {mainData}
+</h1>
 

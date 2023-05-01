@@ -89,3 +89,36 @@ export const mainData:any = {
     },
 
 };
+
+
+
+
+
+
+export const brands = Object.keys(mainData).map((category)=>{
+    return Object.keys(mainData[category].brands).map((brand)=>{
+        return {
+            category,
+            brand,
+            ...mainData[category].brands[brand]
+        }
+    })
+}).flat()
+
+
+
+// list all the events
+export const events = Object.keys(mainData).map((category)=>{
+    return Object.keys(mainData[category].brands).map((brand)=>{
+        return mainData[category].brands[brand].events.map((event)=>{
+            return {
+                category,
+                brand,
+                ...event
+            }
+        })
+    }).flat()
+}).flat()
+
+
+

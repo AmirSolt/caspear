@@ -3,6 +3,8 @@
     import BrandBookmark from "$lib/components/bookmarks/BrandBookmark.svelte";
 
     export let brand:any;
+
+
 </script>
 
 

@@ -11,15 +11,15 @@
 
 	let contentRadio: number  = 0;
 
-	let categories: string[] = Object.keys(mainData);
 	let chosenCategoryIndex: number = 0;
+	const categories: string[] = Object.keys(mainData);
 	$: category = mainData[categories[chosenCategoryIndex]];
 	$: brands = Object.values(category.brands);
 	$: events = brands.map((brand:any) => brand.events).flat();
 
 </script>
 
-<h1>Brands</h1>
+<h1>{["Brands", "Events"][contentRadio]}</h1>
 
 <CategorySelect bind:chosenCategoryIndex categories={categories} />
 

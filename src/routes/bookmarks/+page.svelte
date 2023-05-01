@@ -2,20 +2,28 @@
     
     // export let data;
 	// let mainData = data.mainData;
-	import {mainData} from '$lib/data/mainData';
-    import {bookmarks} from '$lib/data/bookmarks';
+	import {brands} from '$lib/data/mainData';
+    import {bookmarks} from '../../stores/userActivity';
     
     import BrandCard from '$lib/components/cards/BrandCard.svelte';
 
-    // get all brands and get brand object from bookmark names
+    let bookmarkedBrands:any[] = [];
+    for(let brand of brands){
+        if($bookmarks.includes(brand.name)){
+            bookmarkedBrands.push(brand);
+        }
+    }
 
 </script>
 
 
 
-{#each $bookmarks as bookmark }
 
-    <BrandCard brand={bookmark} />
+
+
+{#each bookmarkedBrands as brand }
+
+    <BrandCard brand={brand} />
 
 {/each}
 

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { Bookmark } from 'lucide-svelte';
-	import { bookmarks } from '$lib/data/bookmarks';
+	import {bookmarks} from '../../../stores/userActivity';
 
 	export let brandName: string;
 
-	let isBrandBookmarked:boolean = $bookmarks.includes(brandName);
-    console.log(isBrandBookmarked);
+	$: isBrandBookmarked = $bookmarks.includes(brandName);
+
 
 	function updateBookmarks() {
 		if (!$bookmarks.includes(brandName)) {
@@ -13,15 +13,17 @@
 		} else {
 			$bookmarks.splice($bookmarks.indexOf(brandName), 1); //deleting
 		}
-
-		isBrandBookmarked = !isBrandBookmarked;
-		console.log($bookmarks);
+		console.log($bookmarks)
+		isBrandBookmarked = $bookmarks.includes(brandName);
 	}
+
+
+	
 </script>
 
-<button on:click={updateBookmarks}>
+<button  on:click={updateBookmarks}>
 	{#if isBrandBookmarked}
-		<Bookmark color="#FFFF00" />
+		<Bookmark fill="#FFFF00" />
 	{:else}
 		<Bookmark />
 	{/if}

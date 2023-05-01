@@ -7,6 +7,7 @@
 	import CategorySelect from '$lib/components/explore/CategorySelect.svelte';
 	import Sortby from '$lib/components/explore/Sortby.svelte';
 	import ContentTabs from '$lib/components/explore/ContentTabs.svelte';
+	import BrandFilter from '$lib/components/explore/BrandFilter.svelte';
 
     const contentTabs:string[] = ["Brands", "Events"];
     let chosenContentTab:string = contentTabs[0];
@@ -30,6 +31,7 @@
 <CategorySelect bind:chosenCategoryId categories={categories} />
 
 
+<BrandFilter />
 <Sortby />
 
 {#if chosenContentTab=="Brands"}

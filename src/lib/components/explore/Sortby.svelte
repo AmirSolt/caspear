@@ -1,7 +1,9 @@
 <script lang="ts">
 
+	import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
 
-    let sortBys:string[] = ["Hottest", "Newest", "Oldest"];
+
+    let sortBys:string[] = ["Relevant", "Newest"];
     let chosenSortBy:string= sortBys[0];
 
 
@@ -10,13 +12,15 @@
 
 
 
-<select class="select" bind:value={chosenSortBy}>
+<RadioGroup>
+
 	{#each sortBys as sortBy}
-		<option 
-			value={sortBy} 
-			selected={sortBy === chosenSortBy}
+		<RadioItem 
+			bind:group={chosenSortBy} 
+			name={sortBy} 
+			value={sortBy}
 			>
 			{sortBy}
-		</option>
+		</RadioItem>
 	{/each}
-</select>
+</RadioGroup>

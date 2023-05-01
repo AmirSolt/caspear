@@ -24,7 +24,7 @@
 	
 		
 				<a
-					class="btn btn-sm variant-ringed"
+					class="btn btn-sm variant-filled"
 					href="/bookmarks"
 				>
 					<Bookmark />

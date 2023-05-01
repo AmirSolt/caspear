@@ -1,5 +1,9 @@
 <script lang="ts">
-    export let event: any;
+
+
+    import type {Event} from '$lib/data/marketData';
+
+    export let event: Event;
 </script>
 
 

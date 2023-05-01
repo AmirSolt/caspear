@@ -1,9 +1,10 @@
 
 <script lang="ts">
 
+	import type { Category } from '$lib/data/marketData';
 
-    export let categories:string[] = [];
-    export let chosenCategoryIndex:number;
+    export let categories:Category[] = [];
+    export let chosenCategoryId:string;
 
 </script>
 
@@ -13,13 +14,13 @@
 
 
 
-<select class="select" bind:value={chosenCategoryIndex}>
-	{#each categories as category, index}
+<select class="select" bind:value={chosenCategoryId}>
+	{#each categories as category}
 		<option 
-			value={index} 
-			selected={index === chosenCategoryIndex}
+			value={category.id} 
+			selected={category.id === chosenCategoryId}
 			>
-			{category}
+			{category.name}
 		</option>
 	{/each}
 </select>

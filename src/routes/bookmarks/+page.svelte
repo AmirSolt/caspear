@@ -1,18 +1,18 @@
 <script lang='ts'>
     
-    // export let data;
-	// let mainData = data.mainData;
-	import {brands} from '$lib/data/mainData';
+  
+    import type {Brand} from '$lib/data/marketData';
+	import {getBrandByIds} from '$lib/data/marketData'
     import {bookmarks} from '../../stores/userActivity';
     
     import BrandCard from '$lib/components/cards/BrandCard.svelte';
 
-    let bookmarkedBrands:any[] = [];
-    for(let brand of brands){
-        if($bookmarks.includes(brand.name)){
-            bookmarkedBrands.push(brand);
-        }
-    }
+
+    console.log($bookmarks)
+
+    let bookmarkedBrands:Brand[] = getBrandByIds($bookmarks);
+ 
+    console.log(bookmarkedBrands)
 
 </script>
 

@@ -1,8 +1,10 @@
 <script lang="ts">
 
+    import type {Brand} from '$lib/data/marketData';
     import BrandBookmark from "$lib/components/bookmarks/BrandBookmark.svelte";
+    
 
-    export let brand:any;
+    export let brand:Brand;
 
 
 </script>
@@ -20,6 +22,6 @@
     </div>
     <hr class="opacity-50" />
     <footer class="p-4 flex justify-start brands-center space-x-4">
-        <BrandBookmark brandName={brand.name} />
+        <BrandBookmark brand={brand} />
     </footer>
 </a>
